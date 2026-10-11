@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seller Prep Pack | Beneath the Surface | The Snag Tag</title>
+<style>
+:root{
+  --paper:#F7FAFD; --sheet:#FFFFFF; --grid:rgba(45,91,154,.07); --grid2:rgba(45,91,154,.035);
+  --ink:#16243F; --ink2:#44546F; --muted:#6B7A93; --line:#C9D6E8; --line2:#E2EAF4;
+  --blue:#2D5B9A; --blue-soft:#E8F0FA; --cyan:#0B7F97; --cyan-soft:#E6F4F7;
+  --high:#B3261E; --high-soft:#FCEBEA; --med:#A15C00; --med-soft:#FFF3E0; --low:#2E7D4F; --low-soft:#E7F5EC;
+  --focus:#0B7F97; --shadow:0 1px 2px rgba(22,36,63,.06),0 4px 14px rgba(22,36,63,.05);
+  --mono:ui-monospace,"SFMono-Regular","Cascadia Mono","Roboto Mono",Consolas,monospace;
+  --sans:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+}
+[data-theme="dark"]{
+  --paper:#0F1A2C; --sheet:#15233A; --grid:rgba(140,180,230,.07); --grid2:rgba(140,180,230,.035);
+  --ink:#E6EEF9; --ink2:#B8C6DB; --muted:#8C9BB2; --line:#2F4466; --line2:#243855;
+  --blue:#8CB4E6; --blue-soft:#1C3150; --cyan:#5CC6DA; --cyan-soft:#10303A;
+  --high:#FF8A80; --high-soft:#3A1E22; --med:#FFB74D; --med-soft:#3A2C17; --low:#81C995; --low-soft:#1B3326;
+  --shadow:none;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:var(--sans); color:var(--ink); background:var(--paper); font-size:15px; line-height:1.5;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px),
+  linear-gradient(var(--grid2) 1px,transparent 1px),linear-gradient(90deg,var(--grid2) 1px,transparent 1px);
+  background-size:80px 80px,80px 80px,16px 16px,16px 16px;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--blue)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+/* Title block */
+header.tb{background:var(--sheet);border-bottom:2px solid var(--ink);position:sticky;top:0;z-index:20}
+@media(max-width:700px){header.tb{position:static}.tb-cell{padding:8px 12px}}
+.tb-row{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.tb-cell{padding:10px 14px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;min-width:0}
+.tb-cell:last-child{border-right:0}
+.tb-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.brand{flex:1 1 280px}
+.brand .coll{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.brand h1{margin:2px 0 0;font-size:20px;font-weight:700;letter-spacing:-.01em}
+.brand h1 span{color:var(--blue);font-weight:600}
+.tb-ctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--ink);border-radius:4px;overflow:hidden}
+.seg button{border:0;background:transparent;padding:6px 10px;font-size:13px;cursor:pointer;font-family:var(--mono)}
+.seg button+button{border-left:1px solid var(--ink)}
+.seg button.on{background:var(--ink);color:var(--sheet)}
+nav.tabs{background:var(--sheet);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+nav.tabs button{border:0;background:none;padding:12px 14px;cursor:pointer;font-size:14px;color:var(--ink2);border-bottom:3px solid transparent;white-space:nowrap}
+nav.tabs button .n{font-family:var(--mono);font-size:11px;color:var(--muted);margin-right:6px}
+nav.tabs button.on{color:var(--ink);border-bottom-color:var(--cyan);font-weight:600}
+main{padding:22px 0 60px}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow);margin-bottom:18px;position:relative}
+.sheet-h{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line2);flex-wrap:wrap}
+.sheet-h h2{margin:0;font-size:17px}
+.sheet-h .ref{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em}
+.sheet-b{padding:16px}
+.lede{color:var(--ink2);margin:0 0 12px;max-width:760px}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:820px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--ink2);min-width:0}
+label.f>span{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+input[type=text],input[type=number],input[type=date],select,textarea{
+  width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:4px;background:var(--sheet);font-size:14px}
+textarea{min-height:70px;resize:vertical}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
+.hint{font-size:12px;color:var(--muted)}
+.conv{font-family:var(--mono);font-size:12px;color:var(--cyan);min-height:16px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ink);background:var(--sheet);padding:8px 14px;border-radius:4px;cursor:pointer;font-size:14px}
+.btn:hover{background:var(--blue-soft)}
+.btn.pri{background:var(--ink);color:var(--sheet)}
+.btn.pri:hover{background:var(--blue);border-color:var(--blue)}
+.btn.sm{padding:5px 10px;font-size:13px}
+.btn.ghost{border-color:var(--line)}
+.btn.danger{border-color:var(--high);color:var(--high)}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--sheet);border-radius:999px;padding:5px 11px;font-size:13px;cursor:pointer;color:var(--ink2)}
+.chip.on{background:var(--cyan-soft);border-color:var(--cyan);color:var(--ink);font-weight:600}
+.chip.on::before{content:"\2713  ";color:var(--cyan)}
+/* Journey */
+.journey{display:flex;gap:0;overflow-x:auto;padding:4px 0}
+.jstep{flex:1 0 110px;text-align:center;position:relative;padding:8px 4px}
+.jstep .dot{width:34px;height:34px;margin:0 auto 6px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:12px;background:var(--sheet);position:relative;z-index:1}
+.jstep::after{content:"";position:absolute;top:24px;left:50%;right:-50%;border-top:2px dashed var(--line)}
+.jstep:last-child::after{display:none}
+.jstep .t{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.jstep .d{font-size:12px;color:var(--muted)}
+/* Tables */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:8px;border-bottom:2px solid var(--ink);font-weight:500}
+.tbl td{padding:10px 8px;border-bottom:1px solid var(--line2);vertical-align:top}
+.tbl td .sub{font-size:12px;color:var(--muted)}
+.tbl-wrap{overflow-x:auto}
+@media(max-width:700px){
+  .tbl.stack thead{display:none}
+  .tbl.stack tr{display:block;border:1px solid var(--line);border-radius:6px;margin-bottom:10px;padding:6px}
+  .tbl.stack td{display:block;border:0;padding:6px}
+  .tbl.stack td[data-l]::before{content:attr(data-l);display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+}
+.risk{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:3px;border:1px solid}
+.risk.High{color:var(--high);background:var(--high-soft);border-color:var(--high)}
+.risk.Medium{color:var(--med);background:var(--med-soft);border-color:var(--med)}
+.risk.Low{color:var(--low);background:var(--low-soft);border-color:var(--low)}
+.stat{display:inline-flex;border:1px solid var(--line);border-radius:4px;overflow:hidden;flex-wrap:wrap}
+.stat button{border:0;background:var(--sheet);padding:5px 9px;font-size:12px;cursor:pointer;font-family:var(--mono);color:var(--ink2)}
+.stat button+button{border-left:1px solid var(--line)}
+.stat button.on[data-v="ok"],.stat button.on[data-v="none"]{background:var(--low-soft);color:var(--low);font-weight:700}
+.stat button.on[data-v="finding"],.stat button.on[data-v="signs"]{background:var(--high-soft);color:var(--high);font-weight:700}
+.stat button.on[data-v="open"],.stat button.on[data-v="unchecked"]{background:var(--blue-soft);color:var(--blue);font-weight:700}
+.stat button.on[data-v="na"],.stat button.on[data-v="noaccess"]{background:var(--med-soft);color:var(--med);font-weight:700}
+.note-in{margin-top:6px;font-size:13px;padding:6px 8px}
+/* Findings */
+.fcard{border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:6px;padding:12px 14px;margin-bottom:10px;background:var(--sheet);display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.fcard.High{border-left-color:var(--high)}.fcard.Medium{border-left-color:var(--med)}.fcard.Low{border-left-color:var(--low)}
+.fid{font-family:var(--mono);font-weight:700;letter-spacing:.06em}
+.fcard .meta{font-size:13px;color:var(--ink2)}
+.empty{border:1px dashed var(--line);border-radius:6px;padding:26px;text-align:center;color:var(--muted)}
+/* Editor */
+.step{border-top:1px solid var(--line2);padding:16px 0}
+.step:first-child{border-top:0;padding-top:0}
+.step-h{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.step-h .num{width:28px;height:28px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:12px;flex:0 0 auto}
+.step-h h3{margin:0;font-size:15px}
+.step-h .tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+.q{font-size:14px;font-weight:600;margin:10px 0 6px}
+.editor-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px}
+@media(max-width:960px){.editor-layout{grid-template-columns:1fr}}
+.side{position:sticky;top:130px;align-self:start}
+@media(max-width:960px){.side{position:static}}
+.prompt-box{border:1px solid var(--cyan);border-radius:6px;background:var(--cyan-soft);padding:12px 14px}
+.prompt-box h4{margin:0 0 6px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+.prompt-box ul{margin:4px 0 10px;padding-left:18px;font-size:13px}
+.prompt-box li{margin-bottom:4px}
+.warn{border:1px solid var(--high);background:var(--high-soft);border-radius:6px;padding:10px 12px;font-size:13px;margin-bottom:10px}
+.warn b{color:var(--high)}
+.info{border:1px solid var(--blue);background:var(--blue-soft);border-radius:6px;padding:10px 12px;font-size:13px;margin-bottom:10px}
+.ok{border:1px solid var(--low);background:var(--low-soft);border-radius:6px;padding:10px 12px;font-size:13px;margin-bottom:10px}
+/* Photos */
+.photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media(max-width:560px){.photos{grid-template-columns:1fr}}
+.ph{border:1px dashed var(--ink2);border-radius:6px;padding:10px;text-align:center;background:var(--paper);min-height:160px;display:flex;flex-direction:column;gap:6px;justify-content:center;align-items:center}
+.ph .pt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.ph .pd{font-size:12px;color:var(--muted)}
+.ph img{max-width:100%;max-height:170px;border-radius:4px;border:1px solid var(--line)}
+.ph input{display:none}
+/* Dew */
+.dew-out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+@media(max-width:560px){.dew-out{grid-template-columns:1fr}}
+.kpi{border:1px solid var(--line);border-radius:6px;padding:10px 12px;background:var(--paper)}
+.kpi .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font-size:20px;font-weight:700;font-family:var(--mono)}
+.kpi .s{font-size:12px;color:var(--ink2)}
+.sum-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media(max-width:700px){.sum-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.legend{display:grid;gap:8px;font-size:13px}
+.legend div{display:flex;gap:10px;align-items:flex-start}
+.refs{font-size:13px;padding-left:18px}
+.refs li{margin-bottom:6px}
+.src{font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;color:var(--muted);margin-top:4px}
+.src a{color:var(--cyan);text-decoration:none;border-bottom:1px dotted var(--cyan)}
+.srclist{list-style:none;padding:0;margin:0;font-size:13px}
+.srclist li{padding:8px 0;border-bottom:1px solid var(--line2);overflow-wrap:anywhere}
+.refs li,.rep-f dd{overflow-wrap:anywhere}
+.srclist .key{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:.06em;text-transform:uppercase;display:block}
+.srclist li:target{background:var(--cyan-soft)}
+.steps li{margin-bottom:8px}
+@media(max-width:700px){#reportBody table.tbl{display:block;overflow-x:auto}}
+.toast{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--sheet);padding:10px 16px;border-radius:4px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:99;max-width:90vw}
+.toast.show{opacity:1}
+footer{border-top:2px solid var(--ink);background:var(--sheet);padding:14px 0;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.hide{display:none!important}
+.buyer-only,.owner-only{}
+body[data-mode="buyer"] .owner-only{display:none!important}
+body[data-mode="owner"] .buyer-only{display:none!important}
+/* Report */
+.rep-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}
+.rep-photos figure{margin:0;font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.rep-photos img{width:100%;border:1px solid var(--line);border-radius:3px}
+.rep-f{border:1px solid var(--line);border-radius:6px;padding:12px;margin-bottom:12px;page-break-inside:avoid}
+.rep-f dl{display:grid;grid-template-columns:170px 1fr;gap:4px 12px;margin:8px 0;font-size:13px}
+.rep-f dt{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.rep-f dd{margin:0}
+@media(max-width:560px){.rep-f dl{grid-template-columns:1fr}}
+@media print{
+  :root,[data-theme="dark"]{--paper:#fff;--sheet:#fff;--ink:#16243F;--ink2:#44546F;--muted:#5B6A82;--line:#B8C6DA;--line2:#DDE5F0;--blue:#2D5B9A;--blue-soft:#EEF3FA;--cyan:#0B7F97;--cyan-soft:#E6F4F7;--high:#B3261E;--high-soft:#FCEBEA;--med:#A15C00;--med-soft:#FFF3E0;--low:#2E7D4F;--low-soft:#E7F5EC}
+  body{background:#fff;font-size:12px;color:#16243F}
+  .rep-f{page-break-inside:auto}
+  .rep-f dl,.rep-photos figure{page-break-inside:avoid}
+  .rep-photos img{max-height:220px;object-fit:contain}
+  header.tb,nav.tabs,footer,.no-print,.toast{display:none!important}
+  .view{display:none!important}
+  #view-report{display:block!important}
+  .sheet{box-shadow:none;border-color:#999}
+  main{padding:0}
+}
+</style>
+<style>
+.wk{display:grid;grid-template-columns:1fr 170px 1fr;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line2)}
+.wk .sub{font-size:12px;color:var(--muted)}
+.grp{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:14px 0 6px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.doc{display:grid;grid-template-columns:1fr 190px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line2)}
+.doc .sub{font-size:12px;color:var(--muted)}
+@media(max-width:760px){.wk,.doc{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-mode="owner">
+<header class="tb"><div class="wrap tb-row" style="padding:0">
+  <div class="tb-cell brand"><div class="coll">The Snag Tag &middot; Beneath the Surface</div><h1>Seller <span>Prep Pack</span></h1></div>
+  <div class="tb-cell"><div class="tb-label">Display</div><div class="seg" id="themeSeg"><button data-v="light">Light</button><button data-v="dark">Dark</button></div></div>
+</div></header>
+<nav class="tabs"><div class="wrap" id="tabs">
+  <button data-t="start"><span class="n">00</span>Start</button>
+  <button data-t="walk"><span class="n">01</span>Condition Walk</button>
+  <button data-t="repairs"><span class="n">02</span>Repairs &amp; Invoices</button>
+  <button data-t="docs"><span class="n">03</span>Documents</button>
+  <button data-t="report"><span class="n">04</span>Seller Pack</button>
+</div></nav>
+<main><div class="wrap">
+
+<section class="view" id="view-start">
+  <div class="sheet"><div class="sheet-h"><h2>Get ready before buyers look.</h2><span class="ref">SHEET 00 &middot; START</span></div>
+  <div class="sheet-b">
+    <p class="lede">Buyers and their inspectors will look for the same hidden defects the Beneath the Surface checks record. This pack helps you find and fix what you can before you list, keep the evidence of every repair, gather the records buyers ask for, and hand over one clear, honest pack. It is not legal advice, and it never replaces the disclosure your local law requires.</p>
+    <div class="journey" aria-label="Seller journey">
+      <div class="jstep"><div class="dot">1</div><div class="t">Walk</div><div class="d">The signs buyers look for</div></div>
+      <div class="jstep"><div class="dot">2</div><div class="t">Fix</div><div class="d">With licensed trades</div></div>
+      <div class="jstep"><div class="dot">3</div><div class="t">Record</div><div class="d">Invoices and warranties</div></div>
+      <div class="jstep"><div class="dot">4</div><div class="t">Gather</div><div class="d">Documents buyers ask for</div></div>
+      <div class="jstep"><div class="dot">5</div><div class="t">Share</div><div class="d">One honest seller pack</div></div>
+    </div>
+  </div></div>
+  <div class="sheet"><div class="sheet-h"><h2>Property details</h2><span class="ref">TITLE BLOCK</span></div>
+  <div class="sheet-b"><div class="grid g3">
+    <label class="f"><span>Property name / reference</span><input type="text" data-p="name" placeholder="e.g. 12 Seaview Road"></label>
+    <label class="f"><span>Address</span><input type="text" data-p="address"></label>
+    <label class="f"><span>Prepared by</span><input type="text" data-p="by"></label>
+    <label class="f"><span>Year built (if known)</span><input type="text" data-p="built" placeholder="Record, don't guess"></label>
+    <label class="f"><span>Planned listing date</span><input type="date" data-p="list"></label>
+    <label class="f"><span>Agent / conveyancer</span><input type="text" data-p="agent"></label>
+  </div>
+  <label class="f" style="margin-top:12px"><span>General notes</span><textarea data-p="notes"></textarea></label></div></div>
+  <div class="sheet"><div class="sheet-h"><h2>Good to know</h2><span class="ref">LIMITS</span></div>
+  <div class="sheet-b"><ul style="margin:0;padding-left:18px;font-size:14px">
+    <li>What a seller must disclose is set by local law and differs between countries and states. Ask your agent or conveyancer what applies to you. <span class="src" style="display:inline">(Professional practice)</span></li>
+    <li>Record known issues honestly, even after a repair. Hiding a defect can create problems later; a documented repair with an invoice builds trust. <span class="src" style="display:inline">(Professional practice)</span></li>
+    <li>Safety items (gas, electrical, structural) are for licensed or registered professionals. This pack only records what was seen and done. <span class="src" style="display:inline">(Professional practice)</span></li>
+  </ul></div></div>
+</section>
+
+<section class="view hide" id="view-walk">
+  <div class="sheet"><div class="sheet-h"><h2>Condition Walk</h2><span class="ref" id="walkRef"></span></div>
+  <div class="sheet-b"><p class="lede">The most important signs from each of the twelve Beneath the Surface checks. Walk the home, record what you see, and note what was done. For a full check of any area, use that Beneath the Surface tool.</p>
+  <div id="walk"></div></div></div>
+</section>
+
+<section class="view hide" id="view-repairs">
+  <div class="sheet"><div class="sheet-h"><h2>Repairs &amp; Invoices</h2><span class="ref" id="repRef"></span></div>
+  <div class="sheet-b"><p class="lede">One line per repair or service. Buyers are often asked to check that agreed repairs have been completed before closing (US CFPB), so clear records help both sides.</p>
+  <div class="grid g3">
+    <label class="f"><span>What was repaired or serviced</span><input type="text" id="rpItem" placeholder="e.g. Bathroom extractor fan replaced"></label>
+    <label class="f"><span>Done by (company, licence or registration no.)</span><input type="text" id="rpBy" placeholder="Record, don't guess"></label>
+    <label class="f"><span>Date</span><input type="date" id="rpDate"></label>
+    <label class="f"><span>Invoice or certificate kept?</span><select id="rpInv"><option value="">Select</option><option>Yes</option><option>No</option></select></label>
+    <label class="f"><span>Warranty until (if any)</span><input type="date" id="rpWar"></label>
+    <label class="f"><span>Related check</span><select id="rpChk"><option value="">None</option></select></label>
+  </div>
+  <div class="row" style="margin-top:10px"><button class="btn pri" id="rpSave" type="button">Add repair</button></div>
+  <div class="tbl-wrap" style="margin-top:14px"><table class="tbl stack" id="rpTbl"><thead><tr><th>Repair / service</th><th>By</th><th>Date</th><th>Invoice</th><th>Warranty</th><th></th></tr></thead><tbody></tbody></table></div></div></div>
+</section>
+
+<section class="view hide" id="view-docs">
+  <div class="sheet"><div class="sheet-h"><h2>Documents buyers commonly ask for</h2><span class="ref" id="docRef"></span></div>
+  <div class="sheet-b"><p class="lede">Gather what exists. Mark each one so you know what is still to find. Which documents are required differs by country and state.</p>
+  <div id="docs"></div></div></div>
+</section>
+
+<section class="view hide" id="view-report">
+  <div class="row no-print" style="margin-bottom:12px">
+    <button class="btn pri" id="printBtn" type="button">Print / Save as PDF</button>
+    <button class="btn" id="exportBtn" type="button">Download backup (.json)</button>
+    <label class="btn">Restore backup<input type="file" id="importFile" accept=".json,application/json" style="display:none"></label>
+    <button class="btn danger" id="resetBtn" type="button">Clear all data</button>
+  </div>
+  <div class="sheet"><div class="sheet-b" id="reportBody"></div></div>
+</section>
+
+</div></main>
+<footer><div class="wrap"><span>THE SNAG TAG &middot; BENEATH THE SURFACE COLLECTION &middot; SELLER PREP PACK</span><span id="saveState">SAVED ON THIS DEVICE</span></div></footer>
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+"use strict";
+var KEY='snagtag_bts_seller_v1';
+var WALK=[{"n": "01", "t": "Dampness Investigation", "a": "#0B7F97", "items": [{"t": "Visible mould", "src": "EPA Brief Guide, EPA Remediation Guide, WHO 2009"}, {"t": "Ceiling staining", "src": "EPA Mold Course, Professional practice"}, {"t": "Plumbing proximity", "src": "EPA Brief Guide, EPA Mold Course"}, {"t": "Ground contact", "src": "EPA Brief Guide, EPA Mold Course"}]}, {"n": "02", "t": "Electrical Warning Signs", "a": "#5B3FB0", "items": [{"t": "Flickering or dimming lights", "src": "NFPA tip sheet, ESFi Home Safety"}, {"t": "Warm or hot outlets, switches or plugs", "src": "NFPA tip sheet, ESFi Home Safety, CPSC Extension Cords"}, {"t": "Discolouration or scorch marks", "src": "NFPA tip sheet, ESF Extension Leads, ESFi Home Safety"}, {"t": "Burning, rubbery or hot plastic smell", "src": "NFPA tip sheet, ESF Extension Leads"}]}, {"n": "03", "t": "Roof & Rainwater", "a": "#3E5C76", "items": [{"t": "Signs of an active leak", "src": "InterNACHI SOP, EPA Mold Course"}, {"t": "Top-floor ceiling stains", "src": "EPA Mold Course, Professional practice"}, {"t": "Missing, slipped or broken roof covering", "src": "InterNACHI SOP, Professional practice"}, {"t": "Sagging or uneven roof line", "src": "Professional practice"}]}, {"n": "04", "t": "Plumbing & Hidden Leaks", "a": "#0F766E", "items": [{"t": "Active leak seen", "src": "InterNACHI SOP, EPA Brief Guide"}, {"t": "Water meter test", "src": "EPA WaterSense"}, {"t": "Stains below wet rooms", "src": "EPA Mold Course, Professional practice"}, {"t": "Toilet loose or leaking at the base", "src": "InterNACHI SOP"}]}, {"n": "05", "t": "Cracks & Movement", "a": "#7A5C3E", "items": [{"t": "Cracks wider than about 5 mm (0.2 in)", "src": "BRE, Designing Buildings"}, {"t": "Cracks getting wider", "src": "BRE"}, {"t": "Bulging or leaning walls", "src": "Professional practice, Designing Buildings"}, {"t": "Doors or windows that have started to stick", "src": "InterNACHI SOP"}]}, {"n": "06", "t": "Fire Safety & Escape", "a": "#9D174D", "items": [{"t": "Smoke alarm on every level", "src": "NFPA Smoke Alarms, USFA Smoke Alarms, UK Fire Kills"}, {"t": "Alarms in and outside sleeping areas", "src": "NFPA Smoke Alarms, USFA Smoke Alarms"}, {"t": "Alarms tested in the last month", "src": "NFPA Smoke Alarms, UK Fire Kills, USFA Smoke Alarms"}, {"t": "Alarms less than 10 years old", "src": "NFPA Smoke Alarms, USFA Smoke Alarms"}]}, {"n": "07", "t": "Gas & Carbon Monoxide", "a": "#374151", "items": [{"t": "Smell of gas", "src": "Gas Safe Emergency"}, {"t": "CO alarm present", "src": "CDC Carbon Monoxide, Gas Safe Register"}, {"t": "CO alarm working", "src": "CDC Carbon Monoxide"}, {"t": "Lazy yellow or orange flames", "src": "Gas Safe Register, Cadent Gas"}]}, {"n": "08", "t": "Ventilation & Indoor Air", "a": "#1D4ED8", "items": [{"t": "Bathroom and WC extraction", "src": "EPA Mold & Moisture, UK Gov Damp & Mould"}, {"t": "Dryer vented to the outside", "src": "EPA Mold & Moisture"}, {"t": "Fans do not vent into the roof space", "src": "EPA Mold & Moisture, Professional practice"}, {"t": "Air vents for fuel appliances clear", "src": "Professional practice, CDC Carbon Monoxide"}]}, {"n": "09", "t": "Coastal Corrosion", "a": "#3730A3", "items": [{"t": "Spalling or falling concrete", "src": "Designing Buildings Spalling"}, {"t": "Exposed or rusting reinforcement", "src": "Designing Buildings Spalling, Designing Buildings Rust"}, {"t": "Balcony railings sound (look only)", "src": "Professional practice"}, {"t": "Balcony slabs and undersides", "src": "Designing Buildings Spalling, Professional practice"}]}, {"n": "10", "t": "Post-Storm Check", "a": "#86198F", "items": [{"t": "Safe to enter", "src": "CDC After a storm, Red Cross Structure"}, {"t": "Fallen power lines reported", "src": "CDC After a storm, Queensland Electrical Safety Office"}, {"t": "No gas smell or hissing", "src": "Gas Safe Emergency, Red Cross Structure"}, {"t": "Wet electrics switched off and checked", "src": "Electrical Safety First, Red Cross Utilities, Queensland Electrical Safety Office"}]}, {"n": "11", "t": "Timber & Pests", "a": "#5F6B12", "items": [{"t": "Signs of termites", "src": "EPA Termites, Professional practice"}, {"t": "Possible dry rot", "src": "Designing Buildings Dry rot, Designing Buildings Rot & insects"}, {"t": "Structural timber sound", "src": "Designing Buildings Rot & insects, Professional practice"}, {"t": "Deck and balcony timbers sound", "src": "Professional practice"}]}, {"n": "12", "t": "Move-In & Move-Out Condition", "a": "#1E3A8A", "items": [{"t": "Smoke alarms working", "src": "NFPA"}, {"t": "CO alarm where fuel appliances are fitted", "src": "CDC Carbon Monoxide"}, {"t": "No gas smell", "src": "Gas Safe Emergency"}, {"t": "No exposed wiring or damaged sockets", "src": "Professional practice"}]}];
+var DOCS=[
+ {id:'svc',t:'Gas, oil or coal appliance service records',n:'Yearly servicing by a qualified technician is recommended (US CDC; UK Gas Safe Register).'},
+ {id:'alarms',t:'Smoke and CO alarm details',n:'Ages and test dates. Smoke alarms are replaced at 10 years (NFPA).'},
+ {id:'elec',t:'Electrical work records and certificates',n:'Requirements differ by country.'},
+ {id:'permits',t:'Permits or approvals for extensions and alterations',n:'Requirements differ by country and council.'},
+ {id:'pest',t:'Pest inspection and treatment reports, warranties',n:'For example termite management records in Australia (AS 3660).'},
+ {id:'roof',t:'Roof, gutter and chimney work records',n:'Dates, contractors and any warranties.'},
+ {id:'damp',t:'Damp, leak or mould repair records',n:'What was found, what was fixed, and invoices.'},
+ {id:'struct',t:'Structural or engineer reports',n:'Including crack monitoring records, if any.'},
+ {id:'strata',t:'Apartments: building inspection and maintenance records',n:'For example structural or balcony inspections and planned repairs.'},
+ {id:'manuals',t:'Appliance manuals and warranties',n:'For items included in the sale.'},
+ {id:'utilities',t:'Meter, valve and panel locations',n:'Water shut-off, gas emergency control valve, electrical panel.'},
+ {id:'keys',t:'Keys, remotes and codes list',n:'Every door, window, garage and gate.'}
+];
+var WST=['Not checked','OK','Issue found','Repaired','Not applicable'];
+var DST=['Not started','Have it','Need to find','Does not exist','Not applicable'];
+var S={theme:'light',property:{},walk:{},repairs:[],docs:{}};
+try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);if(o&&o.walk)S=Object.assign(S,o);}}catch(e){}
+function $(s){return document.querySelector(s);}function $$(s){return Array.prototype.slice.call(document.querySelectorAll(s));}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2400);}
+var tm=null;function flush(){clearTimeout(tm);tm=null;try{localStorage.setItem(KEY,JSON.stringify(S));$('#saveState').textContent='SAVED ON THIS DEVICE';}catch(e){$('#saveState').textContent='NOT SAVED';}}
+function save(){clearTimeout(tm);tm=setTimeout(flush,200);}
+window.addEventListener('pagehide',function(){if(tm)flush();});
+function fmt(s){return s?new Date(s+'T12:00:00').toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}):'-';}
+function key(g,i){return g.n+'-'+i;}
+function renderWalk(){
+  var h='',done=0,iss=0,tot=0;
+  WALK.forEach(function(g){h+='<div class="grp"><span class="dot" style="background:'+g.a+'"></span>'+esc(g.n+' '+g.t)+'</div>';
+    g.items.forEach(function(it,i){var k=key(g,i),w=S.walk[k]||{st:'Not checked',note:''};tot++;if(w.st!=='Not checked')done++;if(w.st==='Issue found')iss++;
+      h+='<div class="wk"><div><b>'+esc(it.t)+'</b><div class="sub">Source in the full tool: '+esc(it.src)+'</div></div><select data-w="'+k+'" aria-label="Status">'+WST.map(function(x){return '<option'+(w.st===x?' selected':'')+'>'+x+'</option>';}).join('')+'</select><input type="text" data-wn="'+k+'" placeholder="What you saw or did" value="'+esc(w.note)+'"></div>';});});
+  $('#walk').innerHTML=h;$('#walkRef').textContent=done+' / '+tot+' CHECKED'+(iss?' · '+iss+(iss===1?' ISSUE OPEN':' ISSUES OPEN'):'');
+}
+function renderRepairs(){
+  $('#rpChk').innerHTML='<option value="">None</option>'+WALK.map(function(g){return '<option>'+esc(g.n+' '+g.t)+'</option>';}).join('');
+  var h=S.repairs.map(function(r,i){return '<tr><td data-l="Repair / service"><b>'+esc(r.item)+'</b>'+(r.chk?'<div class="sub">'+esc(r.chk)+'</div>':'')+'</td><td data-l="By">'+esc(r.by||'-')+'</td><td data-l="Date">'+fmt(r.date)+'</td><td data-l="Invoice">'+(r.inv==='Yes'?'<span class="risk Low">Kept</span>':'<span class="risk Medium">'+(r.inv==='No'?'Not kept':'Not recorded')+'</span>')+'</td><td data-l="Warranty">'+fmt(r.war)+'</td><td><button class="btn sm ghost" type="button" data-rdel="'+i+'">Remove</button></td></tr>';}).join('');
+  $('#rpTbl tbody').innerHTML=h||'<tr><td colspan="6"><div class="empty">No repairs recorded yet.</div></td></tr>';
+  var ni=S.repairs.filter(function(r){return r.inv!=='Yes';}).length;
+  $('#repRef').textContent=S.repairs.length+' REPAIR'+(S.repairs.length===1?'':'S')+(ni?' · '+ni+' WITHOUT INVOICE':'');
+}
+function renderDocs(){
+  var have=0;$('#docs').innerHTML=DOCS.map(function(d){var s=S.docs[d.id]||'Not started';if(s==='Have it')have++;return '<div class="doc"><div><b>'+esc(d.t)+'</b><div class="sub">'+esc(d.n)+'</div></div><select data-d="'+d.id+'" aria-label="Status">'+DST.map(function(x){return '<option'+(s===x?' selected':'')+'>'+x+'</option>';}).join('')+'</select></div>';}).join('');
+  $('#docRef').textContent=have+' / '+DOCS.length+' IN HAND';
+}
+function renderReport(){
+  var P=S.property,h='<div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:14px"><div><div style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--cyan)">THE SNAG TAG &middot; BENEATH THE SURFACE</div><h2 style="margin:4px 0 0;font-size:22px">Seller Information Pack</h2><div class="hint">Prepared for buyers and their advisers</div></div><div style="font-family:var(--mono);font-size:12px;text-align:right">'+esc(P.name||'Property')+'<br>'+esc(P.address||'')+'<br>Prepared by: '+esc(P.by||'-')+'<br>Year built: '+esc(P.built||'-')+'</div></div>';
+  var rows=[];WALK.forEach(function(g){g.items.forEach(function(it,i){var w=S.walk[key(g,i)];if(w&&w.st!=='Not checked')rows.push([g.n+' '+g.t,it.t,w.st,w.note]);});});
+  h+='<h3 style="font-size:15px;margin:18px 0 6px">Condition walk</h3>'+(rows.length?'<table class="tbl"><thead><tr><th>Area</th><th>Sign</th><th>Status</th><th>Note</th></tr></thead><tbody>'+rows.map(function(r){return '<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td><td>'+esc(r[2])+'</td><td>'+esc(r[3]||'')+'</td></tr>';}).join('')+'</tbody></table>':'<p class="hint">Not started.</p>');
+  h+='<h3 style="font-size:15px;margin:18px 0 6px">Repairs and services</h3>'+(S.repairs.length?'<table class="tbl"><thead><tr><th>Repair / service</th><th>By</th><th>Date</th><th>Invoice</th><th>Warranty until</th></tr></thead><tbody>'+S.repairs.map(function(r){return '<tr><td>'+esc(r.item)+'</td><td>'+esc(r.by||'-')+'</td><td>'+fmt(r.date)+'</td><td>'+esc(r.inv||'-')+'</td><td>'+fmt(r.war)+'</td></tr>';}).join('')+'</tbody></table>':'<p class="hint">None recorded.</p>');
+  h+='<h3 style="font-size:15px;margin:18px 0 6px">Documents</h3><table class="tbl"><thead><tr><th>Document</th><th>Status</th></tr></thead><tbody>'+DOCS.map(function(d){return '<tr><td>'+esc(d.t)+'</td><td>'+esc(S.docs[d.id]||'Not started')+'</td></tr>';}).join('')+'</tbody></table>';
+  if(P.notes)h+='<h3 style="font-size:15px;margin:18px 0 6px">Notes</h3><p style="font-size:14px">'+esc(P.notes)+'</p>';
+  h+='<div class="info" style="margin-top:18px"><b>Important:</b> this pack records what the seller saw, repaired and holds on file. It is not a survey or inspection, does not replace any legally required disclosure, and is not legal advice. Buyers should arrange their own inspections.</div>';
+  $('#reportBody').innerHTML=h;
+}
+function renderAll(){$$('[data-p]').forEach(function(el){el.value=S.property[el.dataset.p]||'';});renderWalk();renderRepairs();renderDocs();renderReport();}
+function applyTheme(){document.documentElement.setAttribute('data-theme',S.theme);$$('#themeSeg button').forEach(function(b){b.classList.toggle('on',b.dataset.v===S.theme);});}
+function go(t){$$('.view').forEach(function(v){v.classList.add('hide');});$('#view-'+t).classList.remove('hide');$$('#tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.t===t);});if(t==='report')renderReport();window.scrollTo(0,0);}
+$$('#tabs button').forEach(function(b){b.addEventListener('click',function(){go(b.dataset.t);});});
+$$('#themeSeg button').forEach(function(b){b.addEventListener('click',function(){S.theme=b.dataset.v;applyTheme();save();});});
+$$('[data-p]').forEach(function(el){el.addEventListener('input',function(){S.property[el.dataset.p]=el.value;save();});el.addEventListener('change',function(){S.property[el.dataset.p]=el.value;save();});});
+$('#walk').addEventListener('change',function(e){var k=e.target.dataset.w;if(!k)return;S.walk[k]=S.walk[k]||{st:'Not checked',note:''};S.walk[k].st=e.target.value;save();renderWalk();});
+$('#walk').addEventListener('input',function(e){var k=e.target.dataset.wn;if(!k)return;S.walk[k]=S.walk[k]||{st:'Not checked',note:''};S.walk[k].note=e.target.value;save();});
+$('#docs').addEventListener('change',function(e){var d=e.target.dataset.d;if(!d)return;S.docs[d]=e.target.value;save();renderDocs();});
+$('#rpSave').addEventListener('click',function(){if(!$('#rpItem').value.trim()){toast('Enter what was repaired or serviced.');return;}S.repairs.push({item:$('#rpItem').value.trim(),by:$('#rpBy').value,date:$('#rpDate').value,inv:$('#rpInv').value,war:$('#rpWar').value,chk:$('#rpChk').value});['rpItem','rpBy','rpDate','rpWar'].forEach(function(id){$('#'+id).value='';});$('#rpInv').value='';save();renderRepairs();toast('Repair added');});
+$('#rpTbl').addEventListener('click',function(e){var b=e.target.closest('[data-rdel]');if(!b)return;S.repairs.splice(+b.dataset.rdel,1);save();renderRepairs();});
+$('#printBtn').addEventListener('click',function(){renderReport();window.print();});
+$('#exportBtn').addEventListener('click',function(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(Object.assign({v:1,kind:'seller'},S),null,1)],{type:'application/json'}));a.download='seller-prep-pack-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},400);toast('Backup downloaded');});
+$('#importFile').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){try{var o=JSON.parse(rd.result);if(!o||o.kind!=='seller'||!o.walk)throw 0;delete o.v;delete o.kind;S=Object.assign({theme:'light',property:{},walk:{},repairs:[],docs:{}},o);flush();applyTheme();renderAll();go('report');toast('Backup restored');}catch(err){toast('That file is not a valid Seller Prep Pack backup.');}e.target.value='';};rd.readAsText(f);});
+$('#resetBtn').addEventListener('click',function(e){var b=e.currentTarget;if(b.dataset.confirm){var th=S.theme;S={theme:th,property:{},walk:{},repairs:[],docs:{}};flush();renderAll();toast('All data cleared');delete b.dataset.confirm;b.textContent='Clear all data';}else{b.dataset.confirm='1';b.textContent='Tap again to clear everything';setTimeout(function(){delete b.dataset.confirm;b.textContent='Clear all data';},3500);}});
+applyTheme();renderAll();go('start');
+})();
+</script>
+</body>
+</html>
